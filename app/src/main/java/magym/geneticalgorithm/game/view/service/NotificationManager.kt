@@ -47,13 +47,14 @@ internal class NotificationManager(
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
         }
 
-        return PendingIntent.getActivity(context, 0, notificationIntent, 0)
+        return PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE)
     }
     
     private fun createStopServiceIntent(): PendingIntent {
         return context.createBroadcastPendingIntent(
             actionTag = STOP_SERVICE_BROADCAST_ACTION,
-            requestCode = 1
+            requestCode = 1,
+            flags = PendingIntent.FLAG_IMMUTABLE,
         )
     }
 
