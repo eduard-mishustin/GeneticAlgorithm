@@ -1,12 +1,11 @@
 package magym.geneticalgorithm.game.view
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import android.view.MotionEvent
+import kotlin.math.min
 import magym.geneticalgorithm.R
 import magym.geneticalgorithm.common.base.surface.BaseSurfaceView
 import magym.geneticalgorithm.common.util.*
@@ -15,9 +14,7 @@ import magym.geneticalgorithm.game.presentation.entity.*
 import magym.geneticalgorithm.game.presentation.entity.base.GameObject
 import magym.geneticalgorithm.game.presentation.nX
 import magym.geneticalgorithm.game.presentation.nY
-import org.koin.core.KoinComponent
-import org.koin.core.get
-import kotlin.math.min
+import org.koin.core.component.KoinComponent
 
 class GameSurfaceView(
     context: Context, attributeSet: AttributeSet
@@ -33,7 +30,7 @@ class GameSurfaceView(
     private val wallPaint = createPaint("#E4E4E4")
     private val gridPaint = createPaint("#F2F2F2")
 
-    private val presenter: GamePresenter = get()
+    private val presenter: GamePresenter = getKoin().get()
     
     
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {

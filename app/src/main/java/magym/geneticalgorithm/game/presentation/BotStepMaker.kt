@@ -68,6 +68,7 @@ internal class BotStepMakerImpl(
             is Move -> handleMoveCommand(command.direction)
             is Take -> handleTakeCommand(command.direction)
             is Turn -> turn(command.turnIncrementer)
+            else -> Unit
         }
     }
     
